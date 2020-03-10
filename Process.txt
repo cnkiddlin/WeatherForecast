@@ -1,0 +1,35 @@
+Testing and downloading live weather movie to feature at IBM Client centers
+
+Step 1. - Download test video from ftp server 
+Login to the ftp server below
+Server Details
+FTP Server: uk-wsiftp.wsi.com
+User ID: ukprism
+Password: PrettyP1ctures. (include the full stop)
+
+A test video file will be uploaded to ftp server for download. Step-by-step Instructions to download the video is listed below.
+
+Step 2.
+Once the test video file has been approved by the client center team, John Taylor will begin a week of internal production tests before going live.
+
+Step 3.
+The video will be produced and uploaded daily to our ftp server or an ftp server nominated by yourselves.
+The .mov file will be available to download by 09:00 local time (usually between 08:00 and 08:30 am local).
+You will be informed once the video is ready to go live.
+
+
+Instructions to download the file from FTP server (for Windows)
+
+•	Open File Explorer or Window Explorer on your Windows Laptop
+•	Right click on the right pane and select "Add a network location"
+•	Go through the wizard and select "Choose a custom network location"
+•	Under Specify the location of your website - Internet or Network Address, enter ftp://uk-wsiftp.wsi.com
+•	Enter username: ukprism
+•	Enter Password: PrettyP1ctures. (include the full stop)
+•	Under what do you want to name this location, you can enter TWC
+•	Once you are done, the FTP site will appear under Network Locations on your computer
+•	Click on the FTP site TWC and you will be able to see many mov.
+•	Please select IBM_APAC_Countryname_Today.mov from the list 
+•	Load the movie to the Big Screen at Thinkplace.
+
+** If there is a local FTP server available in country, you may share the login credentials and we can send the Weather Story movie to the FTP server daily.

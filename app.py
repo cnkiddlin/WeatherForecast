@@ -1,5 +1,14 @@
 from flask import Flask, render_template
 from flask_apscheduler import APScheduler
+import os
+
+
+# Create static folder if it doesn't exist
+if not os.path.exists('static'):
+    os.mkdir('static', mode=0o777)
+    os.makedirs('static/BEIJING', mode=0o777)
+    os.makedirs('static/HONGKONG', mode=0o777)
+    os.makedirs('static/SHANGHAI', mode=0o777)
 
 
 def create_app():

@@ -53,25 +53,4 @@ def deletePrevious(ftp, location):
         print('Error: Delete Failed!')
 
 
-def main():
-    date = datetime.datetime.now().strftime('%Y-%m-%d')
-    dateFormat = date[2:4] + date[5:7] + date[8:10]
-
-    ftpDownload = connectFTP(host='54.228.180.161', username='ukprism', password='PrettyP1ctures.')
-    downloadFile(ftpDownload, 'HONGKONG')
-    downloadFile(ftpDownload, 'BEIJING')
-    downloadFile(ftpDownload, 'SHANGHAI')
-    ftpDownload.quit()
-
-    ftpUpload = connectFTP(host='172.20.6.50', username='zz0836', password='Q2bEKOW%')
-    uploadFile(ftpUpload, "HONGKONG", dateFormat)
-    uploadFile(ftpUpload, "BEIJING", dateFormat)
-    uploadFile(ftpUpload, "SHANGHAI", dateFormat)
-    ftpUpload.quit()
-
-
-if __name__ == '__main__':
-    main()
-
-
 

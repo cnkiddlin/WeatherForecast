@@ -1,6 +1,25 @@
 from flask import Flask, render_template
+from flask_apscheduler import APScheduler
 
-app = Flask(__name__)
+
+def create_app():
+    app = Flask(__name__)
+    app.config.update({
+        "SCHEDULER_API_ENABLED": True,
+        "JOBS": [{
+            "id": "download_and_upload",
+            "func": "schedule:main",
+            "trigger": "cron",
+            "hour": 9
+        }]
+    })
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+    return app
+
+
+app = create_app()
 
 
 @app.route('/')
@@ -24,5 +43,4 @@ def shanghai():
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    app.run(host='0.0.0.0', debug=False)

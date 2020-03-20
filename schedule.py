@@ -23,12 +23,11 @@ def upload():
 
 
 def main():
-    print(1)
-    scheduler = BlockingScheduler()
-    scheduler.add_job(download, 'cron', day_of_week='1-5', hour=9, minute=45)
-    scheduler.add_job(upload, 'cron', day_of_week='1-5', hour=15, minute=48)
-    scheduler.start()
+    download()
+    upload()
 
 
 if __name__ == '__main__':
-     main()
+    scheduler = BlockingScheduler()
+    scheduler.add_job(main, 'cron', hour=9)
+    scheduler.start()

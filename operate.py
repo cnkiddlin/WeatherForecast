@@ -9,7 +9,8 @@ def connectFTP(host, username, password):
     return ftp
 
 
-def downloadFile(ftp, location):
+def downloadFile(location):
+    ftp = connectFTP(host='54.228.180.161', username='ukprism', password='PrettyP1ctures.')
     localpath = './static/' + location + '/'
     try:
         for name in ftp.nlst():
@@ -24,6 +25,8 @@ def downloadFile(ftp, location):
         print('Weather forecast of ' + location + ' not found!')
     except:
         print('Error: Download Failed!')
+    finally:
+        ftp.quit()
 
 
 def uploadFile(ftp, location, date):
@@ -52,5 +55,5 @@ def deletePrevious(ftp, location):
     except:
         print('Error: Delete Failed!')
 
-
-
+if __name__ == '__main__':
+    downloadFile('SHANGHAI')

@@ -20,8 +20,8 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:main",
             "trigger": "cron",
-            "hour": 11,
-            "minute": 3
+            "hour": 13,
+            "minute": 40
         }]
     })
     scheduler = APScheduler()

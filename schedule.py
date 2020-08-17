@@ -8,6 +8,7 @@ def download():
     operate.downloadFile(ftpDownload, 'HONGKONG')
     operate.downloadFile(ftpDownload, 'BEIJING')
     operate.downloadFile(ftpDownload, 'SHANGHAI')
+    operate.downloadFile(ftpDownload, 'TAIBEI')
     ftpDownload.quit()
 
 
@@ -19,6 +20,7 @@ def upload():
     operate.uploadFile(ftpUpload, "HONGKONG", dateFormat)
     operate.uploadFile(ftpUpload, "BEIJING", dateFormat)
     operate.uploadFile(ftpUpload, "SHANGHAI", dateFormat)
+    operate.uploadFile(ftpUpload, "TAIBEI", dateFormat)
     ftpUpload.quit()
 
 

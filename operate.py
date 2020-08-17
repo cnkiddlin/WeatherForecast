@@ -1,9 +1,9 @@
 import ftplib
-import datetime
 
 
 def connectFTP(host, username, password):
     ftp = ftplib.FTP()
+    ftp.set_pasv(False)
     ftp.connect(host, timeout=30)
     ftp.login(username, password)
     return ftp

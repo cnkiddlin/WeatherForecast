@@ -9,7 +9,7 @@ if not os.path.exists('static'):
     os.makedirs('static/BEIJING', mode=0o777)
     os.makedirs('static/HONGKONG', mode=0o777)
     os.makedirs('static/SHANGHAI', mode=0o777)
-    os.makedirs('static/TAIBEI', mode=0o777)
+    os.makedirs('static/TAIPEI', mode=0o777)
 
 
 def create_app():
@@ -18,10 +18,10 @@ def create_app():
         "SCHEDULER_API_ENABLED": True,
         "JOBS": [{
             "id": "download_and_upload",
-            "func": "schedule:main",
+            "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 13,
-            "minute": 40
+            "hour": 16,
+            "minute": 6
         }]
     })
     scheduler = APScheduler()
@@ -53,9 +53,9 @@ def shanghai():
     return render_template('shanghai.html')
 
 
-@app.route('/Taibei')
-def taibei():
-    return render_template('taibei.html')
+@app.route('/Taipei')
+def taipei():
+    return render_template('taipei.html')
 
 
 if __name__ == '__main__':

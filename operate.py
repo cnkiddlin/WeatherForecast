@@ -35,7 +35,7 @@ def uploadFile(ftp, location):
     try:
         ftp.cwd("/Contents/Weather Forecast")
         deletePreviousFtp(ftp, location)
-        f = open("./static/" + location + '/' + location + '.mov', 'rb')
+        f = open("./static/" + location + '/' + location + getDateToday() + '.mov', 'rb')
         filename = location + getDateToday() + '.mov'
         print('----------Start upload ' + filename + '----------')
         ftp.storbinary("STOR " + filename, f)

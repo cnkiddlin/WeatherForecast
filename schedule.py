@@ -32,5 +32,6 @@ if __name__ == '__main__':
     scheduler = BlockingScheduler()
     scheduler.add_job(downAndUp(), 'cron', hour=13, minute=10)
     scheduler.start()
+    # upload()
     # deletePrevious()
 

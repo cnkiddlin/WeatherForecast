@@ -20,9 +20,17 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 16,
-            "minute": 6
-        }]
+            "hour": 9,
+            "minute": 1
+        },
+            {
+                "id": "delete_previous_video",
+                "func": "schedule:deletePrevious",
+                "trigger": "cron",
+                "hour": 19,
+                "minute": 30
+            }
+        ]
     })
     scheduler = APScheduler()
     scheduler.init_app(app)

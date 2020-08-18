@@ -43,6 +43,8 @@ def uploadFile(ftp, location):
         print('Upload of ' + filename + ' done!')
     except:
         print('Error: Upload ' + location + ' Failed!')
+    finally:
+        ftp.quit()
 
 
 def deletePreviousFtp(ftp, location):
@@ -60,9 +62,8 @@ def deletePreviousFtp(ftp, location):
 
 def deletePreviousLocal():
     print("删除昨天的天气预报")
-    fatherPath = "./static/"
     for location in ['BEIJING', 'SHANGHAI', 'TAIPEI', 'HONGKONG']:
-        path = fatherPath + location+ '/' + location + getDateYesterday() + '.mov'
+        path = "./static/" + location+ '/' + location + getDateYesterday() + '.mov'
         if os.path.exists(path):
             print(path)
             os.remove(path)

@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, g
 from flask_apscheduler import APScheduler
+import datetime
 import os
-
 
 # Create static folder if it doesn't exist
 if not os.path.exists('static'):
@@ -20,15 +20,15 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 9,
-            "minute": 1
+            "hour": 15,
+            "minute": 46
         },
             {
                 "id": "delete_previous_video",
                 "func": "schedule:deletePrevious",
                 "trigger": "cron",
-                "hour": 19,
-                "minute": 30
+                "hour": 16,
+                "minute": 40
             }
         ]
     })
@@ -46,11 +46,6 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/HongKong')
-def hongkong():
-    return render_template('hongkong.html')
-
-
 @app.route('/Beijing')
 def beijing():
     return render_template('beijing.html')
@@ -64,6 +59,24 @@ def shanghai():
 @app.route('/Taipei')
 def taipei():
     return render_template('taipei.html')
+
+
+@app.route('/HongKong')
+def hongkong():
+    return render_template('hongkong.html')
+
+
+today = datetime.datetime.now().strftime('%Y-%m-%d')
+#date = today[2:4] + today[5:7] + today[8:10]
+date = "200817"
+@app.route('/date/', methods=['POST', 'GET'])
+def operateDate():
+    global date
+    if request.method == 'GET':
+        return date
+    else:
+        date = request.args.get("date")
+        return "Modified"
 
 
 if __name__ == '__main__':

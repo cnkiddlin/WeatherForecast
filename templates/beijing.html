@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Beijing</title>
+    <title>Beijing</title>
+    <script src="../static/jquery-3.5.1.js"></script>
 </head>
 <body>
-  <video muted id="video" controls="controls" autoplay="autoplay" loop="loop" height="900" width="1600"></video>
+<video muted id="video" controls="controls" autoplay="autoplay" loop="loop" height="900" width="1600"></video>
 </body>
 <script>
-  var date = new Date();
-  var dateString = date.toLocaleDateString()
-  var today = dateString.substring(8, 10) + dateString.substring(3, 5) + dateString.substring(0, 2)
-  document.getElementById("video").src = '../static/BEIJING/BEIJING' + today + '.mov'
+    var nowDate = "000000"
+
+    $(function () {
+        getDate();
+        setInterval(function () {
+            getDate();
+        }, 300000);
+    });
+
+    function getDate() {
+        $.get("/date", function (data) {
+            if (data != nowDate) {
+                nowDate = data
+                console.log('../static/BEIJING/BEIJING' + data + '.mov')
+                document.getElementById("video").src = '../static/BEIJING/BEIJING' + data + '.mov'
+            }
+        });
+    };
 </script>
 </html>

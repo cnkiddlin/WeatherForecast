@@ -1,5 +1,6 @@
 import ftplib
 import datetime
+import requests
 import os
 
 
@@ -43,8 +44,6 @@ def uploadFile(ftp, location):
         print('Upload of ' + filename + ' done!')
     except:
         print('Error: Upload ' + location + ' Failed!')
-    finally:
-        ftp.quit()
 
 
 def deletePreviousFtp(ftp, location):
@@ -63,11 +62,18 @@ def deletePreviousFtp(ftp, location):
 def deletePreviousLocal():
     print("删除昨天的天气预报")
     for location in ['BEIJING', 'SHANGHAI', 'TAIPEI', 'HONGKONG']:
-        path = "./static/" + location+ '/' + location + getDateYesterday() + '.mov'
+        path = "./static/" + location + '/' + location + getDateYesterday() + '.mov'
         if os.path.exists(path):
             print(path)
             os.remove(path)
     print("删除完成")
+
+
+def postDate():
+    data = {'date': getDateToday()}
+    r = requests.post('http://localhost:5000/date', data)
+    print('Date Posted: ' + r.status_code)
+
 
 
 def getDateToday():
@@ -81,4 +87,5 @@ def getDateYesterday():
 
 
 if __name__ == '__main__':
-    downloadFile('TAIPEI')
+    postDate()
+    # downloadFile('TAIPEI')

@@ -21,6 +21,7 @@ def upload():
 
 def downAndUp():
     download()
+    operate.postDate()
     upload()
     pass
 

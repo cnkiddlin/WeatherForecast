@@ -20,15 +20,15 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 15,
-            "minute": 46
+            "hour": 9,
+            "minute": 45
         },
             {
                 "id": "delete_previous_video",
                 "func": "schedule:deletePrevious",
                 "trigger": "cron",
-                "hour": 16,
-                "minute": 40
+                "hour": 10,
+                "minute": 45
             }
         ]
     })
@@ -67,17 +67,17 @@ def hongkong():
 
 
 today = datetime.datetime.now().strftime('%Y-%m-%d')
-#date = today[2:4] + today[5:7] + today[8:10]
-date = "200817"
+date = today[2:4] + today[5:7] + today[8:10]
+date = "200818"
 @app.route('/date/', methods=['POST', 'GET'])
 def operateDate():
     global date
     if request.method == 'GET':
         return date
     else:
-        date = request.args.get("date")
-        return "Modified"
+        date = request.form.get("date")
+        return 'Changed: ' + date
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)

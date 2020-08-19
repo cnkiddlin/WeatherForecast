@@ -21,7 +21,7 @@
         $.get("/date", function (data) {
             if (data != nowDate) {
                 nowDate = data
-                console.log('../static/BEIJING/BEIJING' + data + '.mov')
+                // console.log('../static/BEIJING/BEIJING' + data + '.mov')
                 document.getElementById("video").src = '../static/BEIJING/BEIJING' + data + '.mov'
             }
         });

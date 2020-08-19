@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request
 from flask_apscheduler import APScheduler
 import datetime
 import os
@@ -68,7 +68,7 @@ def hongkong():
 
 today = datetime.datetime.now().strftime('%Y-%m-%d')
 date = today[2:4] + today[5:7] + today[8:10]
-date = "200818"
+# date = "200818"
 @app.route('/date/', methods=['POST', 'GET'])
 def operateDate():
     global date

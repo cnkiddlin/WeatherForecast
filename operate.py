@@ -72,8 +72,7 @@ def deletePreviousLocal():
 def postDate():
     data = {'date': getDateToday()}
     r = requests.post('http://localhost:5000/date', data)
-    print('Date Posted: ' + r.status_code)
-
+    print('Date Posted: ' + str(r.status_code))
 
 
 def getDateToday():

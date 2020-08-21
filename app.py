@@ -20,8 +20,8 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 9,
-            "minute": 45
+            "hour": 12,
+            "minute": 10
         },
             {
                 "id": "delete_previous_video",
@@ -68,7 +68,6 @@ def hongkong():
 
 today = datetime.datetime.now().strftime('%Y-%m-%d')
 date = today[2:4] + today[5:7] + today[8:10]
-# date = "200818"
 @app.route('/date/', methods=['POST', 'GET'])
 def operateDate():
     global date

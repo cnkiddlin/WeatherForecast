@@ -86,5 +86,5 @@ def getDateYesterday():
 
 
 if __name__ == '__main__':
-    postDate()
-    # downloadFile('TAIPEI')
+    # postDate()
+    downloadFile('TAIPEI')

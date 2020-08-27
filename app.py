@@ -32,6 +32,7 @@ def create_app():
             }
         ]
     })
+    # /dev/null 2>&1
     scheduler = APScheduler()
     scheduler.init_app(app)
     scheduler.start()

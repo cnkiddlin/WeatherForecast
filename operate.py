@@ -85,6 +85,13 @@ def getDateYesterday():
     return date[2:4] + date[5:7] + date[8:10]
 
 
+def checkVideos():
+    for location in ['BEIJING', 'SHANGHAI', 'TAIPEI', 'HONGKONG']:
+        path = "./static/" + location + '/' + location + getDateToday() + '.mov'
+        if not os.path.exists(path):
+            return False
+    return True
+
 if __name__ == '__main__':
-    # postDate()
-    downloadFile('TAIPEI')
+    print(checkVideos())
+    # downloadFile('TAIPEI')

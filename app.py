@@ -68,6 +68,7 @@ def hongkong():
 
 today = datetime.datetime.now().strftime('%Y-%m-%d')
 date = today[2:4] + today[5:7] + today[8:10]
+date = "200826"
 @app.route('/date/', methods=['POST', 'GET'])
 def operateDate():
     global date
@@ -75,8 +76,7 @@ def operateDate():
         return date
     else:
         date = request.form.get("date")
-        return 'Changed: ' + date
-
+        return 'Changed: ' + str(date)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)

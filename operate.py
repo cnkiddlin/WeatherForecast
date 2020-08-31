@@ -60,12 +60,16 @@ def deletePreviousFtp(ftp, location):
 
 
 def deletePreviousLocal():
-    print("删除昨天的天气预报")
+    print("删除上一天的天气预报")
     for location in ['BEIJING', 'SHANGHAI', 'TAIPEI', 'HONGKONG']:
-        path = "./static/" + location + '/' + location + getDateYesterday() + '.mov'
-        if os.path.exists(path):
-            print(path)
-            os.remove(path)
+        pathYesterday = "./static/" + location + '/' + location + getDateYesterday() + '.mov'
+        if os.path.exists(pathYesterday):
+            print(pathYesterday)
+            os.remove(pathYesterday)
+    pathFriday = "./static/" + location + '/' + location + getDateFriday() + '.mov'
+    if os.path.exists(pathFriday):
+        print(pathFriday)
+        os.remove(pathFriday)
     print("删除完成")
 
 
@@ -85,12 +89,18 @@ def getDateYesterday():
     return date[2:4] + date[5:7] + date[8:10]
 
 
+def getDateFriday():
+    date = (datetime.datetime.now() + datetime.timedelta(days=-3)).strftime('%Y-%m-%d')
+    return date[2:4] + date[5:7] + date[8:10]
+
+
 def checkVideos():
     for location in ['BEIJING', 'SHANGHAI', 'TAIPEI', 'HONGKONG']:
         path = "./static/" + location + '/' + location + getDateToday() + '.mov'
         if not os.path.exists(path):
             return False
     return True
+
 
 if __name__ == '__main__':
     print(checkVideos())

@@ -9,7 +9,7 @@
 <video muted id="video" controls="controls" autoplay="autoplay" loop="loop" height="100%" width="100%"></video>
 </body>
 <script>
-    var nowDate = "000000"
+    let nowDate = "000000";
 
     $(function () {
         getDate();
@@ -20,11 +20,11 @@
 
     function getDate() {
         $.get("/date", function (data) {
-            if (data != nowDate) {
+            if (data !== nowDate) {
                 nowDate = data
                 document.getElementById("video").src = '../static/TAIPEI/TAIPEI' + data + '.mov'
             }
         });
-    };
+    }
 </script>
 </html>

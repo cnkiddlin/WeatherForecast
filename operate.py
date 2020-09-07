@@ -66,10 +66,10 @@ def deletePreviousLocal():
         if os.path.exists(pathYesterday):
             print(pathYesterday)
             os.remove(pathYesterday)
-    pathFriday = "./static/" + location + '/' + location + getDateFriday() + '.mov'
-    if os.path.exists(pathFriday):
-        print(pathFriday)
-        os.remove(pathFriday)
+        pathFriday = "./static/" + location + '/' + location + getDateFriday() + '.mov'
+        if os.path.exists(pathFriday):
+            print(pathFriday)
+            os.remove(pathFriday)
     print("删除完成")
 
 

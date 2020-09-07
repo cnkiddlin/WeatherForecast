@@ -20,15 +20,15 @@ def create_app():
             "id": "download_and_upload",
             "func": "schedule:downAndUp",
             "trigger": "cron",
-            "hour": 12,
-            "minute": 10
+            "hour": 9,
+            "minute": 15
         },
             {
                 "id": "delete_previous_video",
-                "func": "schedule:deletePrevious",
+                "func": "sche::wqdule:deletePrevious",
                 "trigger": "cron",
-                "hour": 10,
-                "minute": 45
+                "hour": 17,
+                "minute": 15
             }
         ]
     })
